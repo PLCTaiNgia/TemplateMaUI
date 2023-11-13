@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestContainerAPP.Pages.ContainerPage"
+             xmlns:vm="clr-namespace:TestContainerAPP.Models.ViewModels.Startup"
+             x:DataType="vm:ContainerPageViewModel"
+             Title="ContainerPage">
+    
+    <StackLayout Spacing="10" >
+        <ListView x:Name="LsvContainers" ItemsSource="{Binding Containers}" ItemTapped="LsvContainers_ItemTapped" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout Spacing="10" Padding="10,0,10,0" >
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <Image Source="{Binding Thumbnail}" WidthRequest="30" HeightRequest="30"  />
+                            </StackLayout>
+                            
+                            <StackLayout>
+                                <Label Text="{Binding CntrNo}" TextColor="Blue">
+                                </Label>
+                                <Label TextColor="Orange" Text="{Binding Status}" FontSize="10" ></Label>
+                            </StackLayout>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Logout" Command="{Binding LogoutCommand}" Padding="10" WidthRequest="150" ></Button>
+    </StackLayout>
+</ContentPage>

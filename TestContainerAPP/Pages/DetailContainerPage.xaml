@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestContainerAPP.Pages.DetailContainerPage"
+             xmlns:vm="clr-namespace:TestContainerAPP.Models.ViewModels.Startup"
+             x:DataType="vm:DetailContainerPageViewModel"
+             Title="DetailContainerPage">
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center" >
+            <Image Source="{Binding Container.Thumbnail}" WidthRequest="450" HeightRequest="300" VerticalOptions="CenterAndExpand" />
+
+            <Label Padding="10" HorizontalOptions="Center" VerticalOptions="Center" Text="THÔNG TIN CONTAINER" TextColor="#001B79" FontAttributes="Bold" FontSize="28" />
+
+            <StackLayout Padding="10" Orientation="Horizontal" Spacing="4" >
+                <Frame HasShadow="True" Padding="0" CornerRadius="8" WidthRequest="450" >
+                    <StackLayout Padding="10" Orientation="Horizontal" Spacing="4">
+                        <Label TextColor="#0174BE" Text="Mã công: " FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Container.CntrNo}" IsReadOnly="True" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="200"></Entry>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Padding="10" Orientation="Horizontal" Spacing="4">
+                <Frame HasShadow="True" Padding="0" CornerRadius="8" WidthRequest="450">
+                    <StackLayout Padding="10" Orientation="Horizontal" Spacing="4">
+                        <Label TextColor="#0174BE" Text="Trạng thái công: " FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Container.CMStatus}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="200"></Entry>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Padding="10" Orientation="Horizontal" Spacing="4">
+                <Frame HasShadow="True" Padding="0" CornerRadius="8" WidthRequest="450" >
+                    <StackLayout Padding="10" Orientation="Horizontal" Spacing="4">
+                        <Label TextColor="#0174BE" Text="Dung tích: " FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Container.CntrSize}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="200"></Entry>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+
+            <StackLayout Padding="10" Orientation="Horizontal" Spacing="4">
+                <Frame HasShadow="True" Padding="0" CornerRadius="8" WidthRequest="450" >
+                    <StackLayout Padding="10" Orientation="Horizontal" Spacing="4">
+                        <Label TextColor="#0174BE" Text="Trạng thái: " FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Entry Text="{Binding Container.Status}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="200"></Entry>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                <Button Text="Lưu" WidthRequest="100" Margin="0,20,0,0" Command="{Binding SaveUpdateContainerCommand}" BackgroundColor="#00A9FF"/>
+                <Button Text="Trở về" WidthRequest="150" Margin="0,20,0,0" Command="{Binding GotoContainerPageCommand}"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,14 @@
+MauiApp1/bin
+MauiApp1/bin/*
+MauiApp1/obj
+MauiApp1/obj/*
+
+TodoApp/bin
+TodoApp/bin/*
+TodoApp/obj
+TodoApp/obj/*
+
+TestContainerAPP/bin
+TestContainerAPP/bin/*
+TestContainerAPP/obj
+TestContainerAPP/obj/*

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TodoApp.ViewModels"
+             x:DataType="vm:TodoPageViewModel"
+             x:Class="TodoApp.Views.TodoPage"
+             Title="Todo Page"
+             Shell.NavBarIsVisible="False">
+    <Grid RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0">
+            <ListView x:Name="LsvTodoList" ItemsSource="{Binding TodoList}" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="ListView_ItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image 
+                                    HeightRequest="60"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    Aspect="AspectFill"
+                                    WidthRequest="60"
+                                    Grid.RowSpan="2"
+                                    Source="{Binding ThumbnailUrl}"
+                                    />
+
+                                <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start"/>
+                                <CheckBox IsChecked="{Binding Status}" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start" />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
